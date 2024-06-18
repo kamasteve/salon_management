@@ -1,0 +1,133 @@
+<!-- views.xml -->
+
+<odoo>
+    <data>
+
+        <!-- Tree View -->
+        <record id="view_service_commission_tree" model="ir.ui.view">
+            <field name="name">service.commission.tree</field>
+            <field name="model">service.commission</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="attedants"/>
+                    <field name="service_card_no"/>
+                    <field name="salon_order_id"/>
+                    <field name="service_id"/>
+                    <field name="currency_id"/>
+                    <field name="attedant_sale"/>
+                    <field name="discount"/>
+                    <field name="commission_amount"/>
+                    <field name="attedants_tips"/>
+                    <field name="date"/>
+                    <field name="status"/>
+          </tree>
+            </field>
+        </record>
+
+
+        <!-- Form View -->
+        <record id="view_service_commission_form" model="ir.ui.view">
+            <field name="name">service.commission.form</field>
+            <field name="model">service.commission</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="attedants"/>
+                            <field name="service_card_no"/>
+                            <field name="salon_order_id"/>
+                            <field name="currency_id"/>
+                            <field name="commission_amount"/>
+                            <field name="attedants_tips"/>
+                            <field name="date"/>
+                            <field name="status"/>
+                            <field name="service_id"/>
+                            <field name="attedant_sale"/>
+                            <!-- Add other fields you want to display in the form view -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_service_commission_search" model="ir.ui.view">
+            <field name="name">service.commission.search</field>
+            <field name="model">service.commission</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="attedants" string="Attendants"/>
+                    <field name="service_card_no"/>
+                    <field name="salon_order_id" string="Salon Order"/>
+                    <field name="date"/>
+                    <field name="status"/>
+                    <field name="service_id" string="Service"/>
+                    <!-- Add other fields you want to include in the search view -->
+                </search>
+            </field>
+        </record>
+        <record id="salon_commsion_action" model="ir.actions.act_window">
+            <field name="name">Commison</field>
+            <field name="res_model">service.commission</field>
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+
+
+        <record id="view_products_used_tree" model="ir.ui.view">
+            <field name="name">product.used.tree</field>
+            <field name="model">product.used</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="product"/>
+                    <field name="salon_order_id"/>
+                    <field name="quantity"/>
+                    <field name="service_id"/>
+                    <field name="product_serial"/>
+                    <field name="active"/>
+
+                    <!-- Add other fields you want to display in the tree view -->
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form View -->
+        <record id="view_products_used_form" model="ir.ui.view">
+            <field name="name">product.used.form</field>
+            <field name="model">product.used</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                          <field name="product"/>
+                          <field name="salon_order_id"/>
+                          <field name="quantity"/>
+                          <field name="service_id"/>
+                          <field name="product_serial"/>
+                          <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_service_product_used_search" model="ir.ui.view">
+            <field name="name">product.used.search</field>
+            <field name="model">product.used</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="product" string="Product"/>
+                    <field name="service_id" string="Service"/>
+                    <!-- Add other fields you want to include in the search view -->
+                </search>
+            </field>
+        </record>
+        <record id="salon_product_used_action" model="ir.actions.act_window">
+            <field name="name">Product Used</field>
+            <field name="res_model">product.used</field>
+            <field name="view_mode">tree,form,pivot</field>
+        </record>
+
+    </data>
+</odoo>

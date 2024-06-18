@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="view_partner_form_custom" model="ir.ui.view">
+             <field name="name">res.partner.form.custom</field>
+             <field name="model">res.partner</field>
+             <field name="arch" type="xml">
+                 <form string="Custom Partner Form">
+                     <sheet>
+                         <group>
+                             <field name="name"/>
+                             <field name="email" widget="email"/>
+                             <field name="phone" widget="phone"/>
+                             <field name="mobile"/>
+                             <field name="date_of_birth"/>
+                             <field name="referral_source"/>
+
+
+                         </group>
+                     </sheet>
+                 </form>
+             </field>
+         </record>
+         <record id="view_tree_salon_customers" model="ir.ui.view">
+            <field name="name">Salon Customers</field>
+            <field name="model">res.partner</field> <!-- Replace 'your.model' with your actual model name -->
+            <field name="arch" type="xml">
+                <tree string="Example Tree View">
+                    <!-- Define columns for your tree view -->
+                    <field name="name"/>
+                    <field name="email" widget="email"/>
+                    <field name="phone" widget="phone"/>
+                    <field name="mobile" widget="phone"/>
+                    <field name="date_of_birth"/>
+                    <field name="referral_source"/>
+                    <field name="last_salon_order_date"/>
+                    <field name="day_gone"/>
+                    <field name="total_salon_amount_orders"/>
+                    <field name="total_salon_amount"/>
+                    <!-- Add more fields as needed -->
+                </tree>
+            </field>
+        </record>
+         <record id="action_view_partner_form_custom" model="ir.actions.act_window">
+            <field name="name">Custom Partner Form</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tree_salon_customers"/>
+        </record>
+        <record id="action_view_partner_form_cashier" model="ir.actions.act_window">
+           <field name="name">Custom Partner Form</field>
+           <field name="res_model">res.partner</field>
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="view_partner_form_custom"/>
+       </record>
+        <record id="view_employee_targets_form" model="ir.ui.view">
+                  <field name="name">employee.targets.form</field>
+                  <field name="model">employee.targets</field>
+                  <field name="arch" type="xml">
+                      <form string="Employee Targets">
+                          <group>
+                              <field name="employee_id"/>
+                              <field name="target_date"/>
+                              <field name="target_amount"/>
+                          </group>
+                      </form>
+                  </field>
+              </record>
+
+              <!-- Tree view -->
+              <record id="view_employee_targets_tree" model="ir.ui.view">
+                  <field name="name">employee.targets.tree</field>
+                  <field name="model">employee.targets</field>
+                  <field name="arch" type="xml">
+                      <tree string="Employee Targets">
+                          <field name="employee_id"/>
+                          <field name="target_date"/>
+                          <field name="target_amount"/>
+                      </tree>
+                  </field>
+              </record>
+            <act_window id="action_employee_targets" name="Employee Targets" res_model="employee.targets" view_mode="tree,form"/>
+</odoo>
